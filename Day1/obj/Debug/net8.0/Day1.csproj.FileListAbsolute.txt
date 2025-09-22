@@ -1,0 +1,14 @@
+D:\test_C#\Day1\bin\Debug\net8.0\Day1.exe
+D:\test_C#\Day1\bin\Debug\net8.0\Day1.deps.json
+D:\test_C#\Day1\bin\Debug\net8.0\Day1.runtimeconfig.json
+D:\test_C#\Day1\bin\Debug\net8.0\Day1.dll
+D:\test_C#\Day1\bin\Debug\net8.0\Day1.pdb
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.GeneratedMSBuildEditorConfig.editorconfig
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.AssemblyInfoInputs.cache
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.AssemblyInfo.cs
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.csproj.CoreCompileInputs.cache
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.dll
+D:\test_C#\Day1\obj\Debug\net8.0\refint\Day1.dll
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.pdb
+D:\test_C#\Day1\obj\Debug\net8.0\Day1.genruntimeconfig.cache
+D:\test_C#\Day1\obj\Debug\net8.0\ref\Day1.dll
