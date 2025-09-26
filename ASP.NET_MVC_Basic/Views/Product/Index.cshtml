@@ -1,0 +1,31 @@
+﻿@model List<ASP.NET_MVC_Basic.Models.Product>
+
+<h2>Danh sách sản phẩm</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>@item.MaSP</th>
+            <th>@item.TenSP</th>
+            <th>@item.Gia</th>
+            <th>
+                <a asp-action="Update" asp-route-id="@item.MaSP" class="btn btn-success rounded-1 text-white ms-1 fw-bold">Edit</a>
+                <form asp-action="Delete" asp-route-id="@item.MaSP" method="post"
+                      onsubmit="return confirm('Bạn có chắc chắn muốn xóa sản phẩm @item.TenSP không?');"
+                      style="display:inline;">
+                    <button type="submit" class="btn btn-danger rounded-1 text-white fw-bold">Delete</button>
+                </form>
+
+            </th>
+        </tr>
+    }
+
+</table>
+
+<a href="Product/Create" class=" btn btn-primary rounded-1 py-2 px-4">Thêm sản phẩm</a>

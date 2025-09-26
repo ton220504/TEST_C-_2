@@ -3,13 +3,16 @@
   "WorkspaceRootPath": "D:\\test_C#\\Day1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EA0E27C6-0592-404C-9141-8B5318128580}|..\\Day4.2\\Day4.2.csproj|d:\\test_c#\\day4.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EA0E27C6-0592-404C-9141-8B5318128580}|..\\Day4.2\\Day4.2.csproj|d:\\test_c#\\day4.2\\productcrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EA0E27C6-0592-404C-9141-8B5318128580}|..\\Day4.2\\Day4.2.csproj|d:\\test_c#\\day4.2\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E27C6-0592-404C-9141-8B5318128580}|..\\Day4.2\\Day4.2.csproj|d:\\test_c#\\day4.2\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA0E27C6-0592-404C-9141-8B5318128580}|..\\Day4.2\\Day4.2.csproj|d:\\test_c#\\day4.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -32,38 +35,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "D:\\test_C#\\Day4.2\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "..\\Day4.2\\DatabaseHelper.cs",
+              "ToolTip": "D:\\test_C#\\Day4.2\\DatabaseHelper.cs",
+              "RelativeToolTip": "..\\Day4.2\\DatabaseHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T04:57:42.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\test_C#\\Day4.2\\Product.cs",
               "RelativeDocumentMoniker": "..\\Day4.2\\Product.cs",
               "ToolTip": "D:\\test_C#\\Day4.2\\Product.cs",
               "RelativeToolTip": "..\\Day4.2\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T04:35:59.879Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\test_C#\\Day4.2\\Program.cs",
               "RelativeDocumentMoniker": "..\\Day4.2\\Program.cs",
               "ToolTip": "D:\\test_C#\\Day4.2\\Program.cs",
               "RelativeToolTip": "..\\Day4.2\\Program.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAwFUAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwFUAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T03:56:10.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ProductCRUD.cs",
               "DocumentMoniker": "D:\\test_C#\\Day4.2\\ProductCRUD.cs",
               "RelativeDocumentMoniker": "..\\Day4.2\\ProductCRUD.cs",
               "ToolTip": "D:\\test_C#\\Day4.2\\ProductCRUD.cs",
               "RelativeToolTip": "..\\Day4.2\\ProductCRUD.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAuwEQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwEAAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-25T03:32:51.621Z",
               "EditorCaption": ""

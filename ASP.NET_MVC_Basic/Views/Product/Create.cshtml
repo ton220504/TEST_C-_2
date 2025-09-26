@@ -1,0 +1,16 @@
+﻿@model ASP.NET_MVC_Basic.Models.Product
+
+<h2 class="fw-bold">Thêm sản phẩm</h2>
+
+<form asp-action="Create" method="post" style="width: 300px">
+    <div>
+        <label asp-for="TenSP">Nhập tên: </label>
+        <input asp-for="TenSP" class="form-control" />
+    </div>
+    <div class="mt-2">
+        <label asp-for="Gia">Nhập giá: </label>
+        <input asp-for="Gia" class="form-control" />
+    </div>
+
+    <button style="width: 200px" type="submit" class="form-control bg-success rounded-1 py-2 px-4 mt-2 text-white w-100">Thêm</button>
+</form>
