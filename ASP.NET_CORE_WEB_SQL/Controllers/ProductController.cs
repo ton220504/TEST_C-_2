@@ -7,9 +7,11 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public ProductController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _env;
+        public ProductController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
         //List sản phẩm, giao diện hiển thị sản phẩm
         public IActionResult Index()
@@ -44,6 +46,19 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
 
             return "/images/" + fileName;
         }
+
+        //hàm cập nhật lại ảnh
+        private void UpdateImage(IFormFile imageFile, Product pro)
+        {
+            if (imageFile == null || imageFile.Length == 0) return;
+            if (!string.IsNullOrEmpty(pro.ImagePath)){
+                var oldImagePath = Path.Combine(_env.WebRootPath, "images", Path.GetFileName(pro.ImagePath));
+                if (System.IO.File.Exists(oldImagePath))
+                    System.IO.File.Delete(oldImagePath);
+            }
+
+            pro.ImagePath = SaveImage(imageFile);
+        }
         
         // POST
         [HttpPost]
@@ -51,7 +66,7 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(imageFile != null && imageFile.Length > 0)
+                if(imageFile != null || imageFile.Length > 0)
                 {
                     var imagePath = SaveImage(imageFile);
                     pr.ImagePath = imagePath;
@@ -65,12 +80,16 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
         }
         //UPDATE
         [HttpPost, ActionName("Update")]
-        public IActionResult Update(Product pr)
+        public IActionResult Update(Product pr, IFormFile imageFile)
         {
             var ds = _context.Products.FirstOrDefault(sp => sp.Id == pr.Id);
             if (ds == null) return NotFound();
             if (ModelState.IsValid)
             {
+                if(imageFile != null && imageFile.Length > 0)
+                {
+                    UpdateImage(imageFile, ds);
+                }
                 ds.Name = pr.Name;
                 ds.Price = pr.Price;
                 ds.Description = pr.Description;
@@ -90,10 +109,13 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
         {
             var ds = _context.Products.FirstOrDefault(x => x.Id == id);
             if (ds == null) return NotFound();
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", Path.GetFileName(ds.ImagePath));
-            if (System.IO.File.Exists(imagePath))
+            if (!string.IsNullOrEmpty(ds.ImagePath))
             {
-                System.IO.File.Delete(imagePath);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", Path.GetFileName(ds.ImagePath));
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
             }
             _context.Products.Remove(ds);
             _context.SaveChanges();
