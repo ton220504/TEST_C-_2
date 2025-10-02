@@ -1,0 +1,24 @@
+﻿@model ASP.NET_CORE_WEB_SQL.Models.Product
+
+
+<h2>Sửa sản phẩm</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Name">Nhập Tên</label>
+        <input asp-for="Name" class="form-control" type="text" />
+    </div>
+    <div>
+        <label asp-for="Price">Nhập giá</label>
+        <input asp-for="Price" class="form-control" type="number" />
+    </div>
+    <div>
+        <label asp-for="Description">Nhập mô tả</label>
+        <textarea class="form-control" rows="3" asp-for="Description"></textarea>
+
+    </div>
+
+    <button class="btn btn-success text-white rounded mt-2 py-2 px-4" type="submit">Sửa</button>
+
+</form>

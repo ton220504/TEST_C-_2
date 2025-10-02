@@ -1,5 +1,6 @@
 ﻿using ASP.NET_MVC_Basic.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ASP.NET_MVC_Basic.Controllers
 {
@@ -67,8 +68,5 @@ namespace ASP.NET_MVC_Basic.Controllers
             dsSanpham.Remove(sp);
             return RedirectToAction("Index");
         }
-
-       
-
     }
 }
