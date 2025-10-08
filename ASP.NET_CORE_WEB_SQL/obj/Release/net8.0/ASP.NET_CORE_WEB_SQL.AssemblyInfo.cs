@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP.NET_CORE_WEB_SQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2f8e956a88ed1a7d63f14b71ce8929ad14cb883")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebbc044f4f45dd18a760c482effc4c2d05b0c3fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP.NET_CORE_WEB_SQL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP.NET_CORE_WEB_SQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

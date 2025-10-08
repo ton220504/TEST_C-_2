@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\test_C#\\Day1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|d:\\test_c#\\day1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|d:\\test_c#\\day1\\test_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|solutionrelative:test_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|d:\\test_c#\\day1\\test_oop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1AD86C5-E4B5-4BA7-9659-9CDCAAF2233B}|Day1.csproj|solutionrelative:test_oop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -29,17 +33,33 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\test_C#\\Day1\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\test_C#\\Day1\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAA5wIgAAAAlAAAAAAAAAA==",
+              "Title": "Test_2.cs",
+              "DocumentMoniker": "D:\\test_C#\\Day1\\Test_2.cs",
+              "RelativeDocumentMoniker": "Test_2.cs",
+              "ToolTip": "D:\\test_C#\\Day1\\Test_2.cs",
+              "RelativeToolTip": "Test_2.cs",
+              "ViewState": "AgIAAGUBAAAAAAAAAAAQwBwCAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:35:14.893Z",
+              "WhenOpened": "2025-10-06T07:14:49.939Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Test_OOP.cs",
+              "DocumentMoniker": "D:\\test_C#\\Day1\\Test_OOP.cs",
+              "RelativeDocumentMoniker": "Test_OOP.cs",
+              "ToolTip": "D:\\test_C#\\Day1\\Test_OOP.cs",
+              "RelativeToolTip": "Test_OOP.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAQwK0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T06:11:28.79Z"
             }
           ]
         }

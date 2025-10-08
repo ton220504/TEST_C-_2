@@ -120,62 +120,62 @@
 
 //class cha
 
-public class NhanVien
-{
-    public string msnv { get; set; }
-    public string hoten { get; set; }
-    public decimal luongcoban { get; set; }
-    public virtual decimal Tinhluong()
-    {
-        return luongcoban;
-    }
-}
+//public class NhanVien
+//{
+//    public string msnv { get; set; }
+//    public string hoten { get; set; }
+//    public decimal luongcoban { get; set; }
+//    public virtual decimal Tinhluong()
+//    {
+//        return luongcoban;
+//    }
+//}
 
-//class con kế thừa
-public class NhanVienPartTime : NhanVien
-{
-    public int Sogiolam { get; set; }
-    public decimal Luongtheogiolam { get; set; }
+////class con kế thừa
+//public class NhanVienPartTime : NhanVien
+//{
+//    public int Sogiolam { get; set; }
+//    public decimal Luongtheogiolam { get; set; }
 
-    public override decimal Tinhluong()
-    {
-        return Sogiolam * Luongtheogiolam;
-    }
-}
+//    public override decimal Tinhluong()
+//    {
+//        return Sogiolam * Luongtheogiolam;
+//    }
+//}
 
-public class Program
-{
-    public static void Main()
-    {
-        List<NhanVien> dsNhanVien = new List<NhanVien>();
+//public class Program
+//{
+//    public static void Main()
+//    {
+//        List<NhanVien> dsNhanVien = new List<NhanVien>();
 
-        //thêm nhân viên fulltime
-        NhanVien nv1 = new NhanVien { msnv = "ms01", hoten = "VanToan", luongcoban = 15000000 };
-        dsNhanVien.Add(nv1);
+//        //thêm nhân viên fulltime
+//        NhanVien nv1 = new NhanVien { msnv = "ms01", hoten = "VanToan", luongcoban = 15000000 };
+//        dsNhanVien.Add(nv1);
 
-        //thêm nhân viên part time
-        NhanVienPartTime nv2 = new NhanVienPartTime { msnv = "ms02", hoten = "VanA", Sogiolam = 8, Luongtheogiolam = 25000 };
-        dsNhanVien.Add(nv2);
+//        //thêm nhân viên part time
+//        NhanVienPartTime nv2 = new NhanVienPartTime { msnv = "ms02", hoten = "VanA", Sogiolam = 8, Luongtheogiolam = 25000 };
+//        dsNhanVien.Add(nv2);
 
-        Console.WriteLine("Danh sách nhân viên:");
-        foreach(var nv in dsNhanVien)
-        {
-            Console.WriteLine($"MSNV: {nv.msnv}, HoTen: {nv.hoten}, Luong: {nv.Tinhluong()}\n");
-        }
+//        Console.WriteLine("Danh sách nhân viên:");
+//        foreach(var nv in dsNhanVien)
+//        {
+//            Console.WriteLine($"MSNV: {nv.msnv}, HoTen: {nv.hoten}, Luong: {nv.Tinhluong()}\n");
+//        }
 
-        //tìm nhân viên
-        Console.Write("Nhap MSNV: ");
-        string ma = Console.ReadLine();
-        var tim = dsNhanVien.Find(n => n.msnv == ma);
-        if( tim != null)
-        {
-            Console.WriteLine($"MSNV: {tim.msnv}, HoTen: {tim.hoten}, Luong: {tim.Tinhluong()}");
-        }
-        else
-        {
-            Console.WriteLine("Khong tim thay NV theo MSNV");
-        }
-    }
-}
+//        //tìm nhân viên
+//        Console.Write("Nhap MSNV: ");
+//        string ma = Console.ReadLine();
+//        var tim = dsNhanVien.Find(n => n.msnv == ma);
+//        if( tim != null)
+//        {
+//            Console.WriteLine($"MSNV: {tim.msnv}, HoTen: {tim.hoten}, Luong: {tim.Tinhluong()}");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Khong tim thay NV theo MSNV");
+//        }
+//    }
+//}
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

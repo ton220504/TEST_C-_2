@@ -80,27 +80,37 @@ namespace ASP.NET_CORE_WEB_SQL.Controllers
         }
         //UPDATE
         [HttpPost, ActionName("Update")]
-        public IActionResult Update(Product pr, IFormFile imageFile)
+        public IActionResult Update(Product pr, IFormFile? imageFile)
         {
             var ds = _context.Products.FirstOrDefault(sp => sp.Id == pr.Id);
             if (ds == null) return NotFound();
+
             if (ModelState.IsValid)
             {
-                if(imageFile != null && imageFile.Length > 0)
-                {
-                    UpdateImage(imageFile, ds);
-                }
                 ds.Name = pr.Name;
                 ds.Price = pr.Price;
                 ds.Description = pr.Description;
 
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    UpdateImage(imageFile, ds);
+                }
+                else
+                {
+                    ds.ImagePath = ds.ImagePath;
+                }
+
                 _context.Update(ds);
                 _context.SaveChanges();
+
                 TempData["Message"] = "Cập nhật thành công!";
                 return RedirectToAction("Index");
             }
+
+            pr.ImagePath = ds.ImagePath;
             return View(pr);
         }
+
 
 
         //DELETE

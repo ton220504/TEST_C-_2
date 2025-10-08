@@ -6,22 +6,39 @@
 <form asp-action="Create" method="post" enctype="multipart/form-data">
     <div >
         <label class="form-label" asp-for="Name">Nhập Tên</label>
-        <input asp-for="Name" class="form-control" type="text"  />
+        <input required asp-for="Name" class="form-control" type="text"  />
     </div>
     <div>
         <label class="form-label" asp-for="Price">Nhập giá</label>
-        <input asp-for="Price" class="form-control" type="number" />
+        <input required asp-for="Price" class="form-control" type="number" />
     </div>
     <div> 
         <label class="form-label" asp-for="Description">Nhập mô tả</label>
-        <textarea class="form-control" rows="3" asp-for="Description" ></textarea>
+        <textarea required class="form-control" rows="3" asp-for="Description" ></textarea>
 
+    </div>
+    <div class="mt-2">
+        <img id="previewImage" style="max-height: 200px" />
     </div>
     <div>
         <label asp-for="ImagePath" class="form-label">Thêm ảnh</label>
-        <input type="file" class="form-control" name="imageFile" />
+        <input required type="file" class="form-control" name="imageFile" onchange="previewFile(this)" />
     </div>
 
     <button class="btn btn-success text-white rounded mt-2 py-2 px-4" type="submit">Thêm</button>
 
 </form>
+@section Scripts{
+    <script>
+        function previewFile(input){
+            var file = input.files[0];
+            if(file){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    var pre = document.getElementById("previewImage").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+}
