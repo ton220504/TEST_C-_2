@@ -50,9 +50,10 @@ public class ConstantsDemo
 }
 
 
-//check số nguyên tố
-public class CheckNT
+//check
+public class CheckNumberDemo
 {
+    //kiểm tra số nguyên tố
     public static bool IsPrime(int n)
     {
         if (n < 2) return false;
@@ -64,6 +65,84 @@ public class CheckNT
             if (n % i == 0) return false;
         }
         return true;
+    }
+
+    //kiểm tra số chính phương
+    public static bool IsPerfectSquare(int n)
+    {
+        if (n < 0) return false;
+        int sqrt = (int)Math.Sqrt(n);
+        return (sqrt * sqrt == n);
+    }
+
+    //kiểm tra số hoàn hảo
+    public static bool IsPerfectNumber(int n)
+    {
+        if (n < 2) return false;
+        int sum = 1;
+        int sqrt = (int)Math.Sqrt(n);
+        for(int i = 2; i < sqrt; i++)
+        {
+            if (n % i == 0)
+            {
+                sum += i;
+                int other = n / i;
+                if (other != i) sum += other;
+            }
+        }
+        return sum == n;
+    }
+    
+}
+
+//tìm ƯC, BC, WCLN, BCNN
+public class MathDemo
+{
+    // ƯC của 2 số
+    public static List<int> ListCD(int a, int b)
+    {
+        List<int> result = new List<int>();
+        int min = Math.Min(Math.Abs(a), Math.Abs(b));
+        for(int i = 1; i <= min; i++)
+        {
+            if(a%i==0 && b % i == 0)
+            {
+                result.Add(i);
+            }
+        }
+        return result;
+    }
+    //BC của 2 số
+    public static List<int> ListCM(int a, int b, int count=10)
+    {
+        List<int> result = new List<int>();
+        int lcm = LCM(a, b);
+        for(int i=1; i <= count; i++)
+        {
+            result.Add(lcm * i);
+        }
+        return result;
+    }
+    //BCNN
+    public static int LCM(int a, int b)
+    {
+        a = Math.Abs(a);
+        b = Math.Abs(b);
+        if(a == 0 || b == 0) return 0;
+        return (a / GCD(a, b)) * b;
+    }
+    //ƯCLN
+    public static int GCD(int a, int b)
+    {
+        a = Math.Abs(a);
+        b = Math.Abs(b);
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 }
 
@@ -323,19 +402,28 @@ public class Program
         //    Console.WriteLine();
         //}
         //-----------------------------------------------------------------------------------------------------------------------------------------------------
-        Console.WriteLine("----------MENU----------");
-        Console.WriteLine("1. Tạo ma trận vuông NxN");
-        Console.WriteLine("2. Tìm số MAX");
-        Console.WriteLine("3. Tìm số MIN");
-        Console.WriteLine("4. Tìm số nguyên tố");
-        Console.WriteLine("5. Tính tổng mảng");
-        Console.WriteLine("6. Tìm MAX trên cột bất kỳ");
-        Console.WriteLine("7. Tính tổng biên");
-        Console.WriteLine("8. Tính tổng đường chéo chính");
-        Console.WriteLine("9. Tính tổng đường chéo phụ");
+        Console.WriteLine("-----------------MENU-----------------");
+        Console.WriteLine("1.  Tạo ma trận vuông NxN");
+        Console.WriteLine("2.  Tìm số MAX");
+        Console.WriteLine("3.  Tìm số MIN");
+        Console.WriteLine("4.  Tìm số nguyên tố");
+        Console.WriteLine("5.  Tính tổng mảng");
+        Console.WriteLine("6.  Tìm MAX trên cột bất kỳ");
+        Console.WriteLine("7.  Tính tổng biên");
+        Console.WriteLine("8.  Tính tổng đường chéo chính");
+        Console.WriteLine("9.  Tính tổng đường chéo phụ");
         Console.WriteLine("10. Tìm tam giác trên");
+        Console.WriteLine("11. Tìm số chính phương");
+        Console.WriteLine("12. Tìm số hoàn hảo");
+        Console.WriteLine("13. kiểm tra số chẵn lẻ tại vị trí NxN");
+        Console.WriteLine("14. Tìm ước tại vị trí NxN");
+        Console.WriteLine("15. Tìm ƯLN tại vị trí NxN");
+        Console.WriteLine("16. Tìm BC của 2 số bất kì");
+        Console.WriteLine("17. Tìm ƯC của 2 số bất kì");
+        Console.WriteLine("18. Tìm ƯCLN của 2 số bất kì");
+        Console.WriteLine("19. Tìm BCNN của 2 số bất kì");
 
-        Console.WriteLine("0. Thoát");
+        Console.WriteLine("0.  Thoát");
         int choice = -1;
         int n = 0;
         int[,] maxtri = null;
@@ -422,7 +510,7 @@ public class Program
                     {
                         for(int col = 0; col < maxtri.GetLength(1); col++)
                         {
-                            if (CheckNT.IsPrime(maxtri[row, col]))
+                            if (CheckNumberDemo.IsPrime(maxtri[row, col]))
                             {
                                 Console.Write(maxtri[row, col]+"\t");
                             }
@@ -546,11 +634,279 @@ public class Program
                     }
 
                     break;
+                case 11:
+                    if (maxtri == null)
+                    {
+                        Console.WriteLine("Vui lòng tạo ma trận trước (Chọn 1)");
+                        break;
+                    }
+                    Console.WriteLine("Các số chính phương trong ma trận là: ");
+                    for(int row = 0; row < maxtri.GetLength(0); row++)
+                    {
+                        for(int col = 0; col < maxtri.GetLength(1); col++)
+                        {
+                            if (CheckNumberDemo.IsPerfectSquare(maxtri[row, col]))
+                            {
+                                Console.Write(maxtri[row, col] + "\t");
+                            }
+                        }
+                    }
+                    Console.WriteLine();
+                    break;
+                case 12:
+                    if (maxtri == null)
+                    {
+                        Console.WriteLine("Vui lòng tạo ma trận trước (Chọn 1)");
+                        break;
+                    }
+                    Console.WriteLine("Các số hoàn hảo trong ma trận là: ");
+                    for (int row = 0; row < maxtri.GetLength(0); row++)
+                    {
+                        for (int col = 0; col < maxtri.GetLength(1); col++)
+                        {
+                            if (CheckNumberDemo.IsPerfectNumber(maxtri[row, col]))
+                            {
+                                Console.Write(maxtri[row, col] + "\t");
+                            }
+                        }
+                    }
+                    Console.WriteLine();
+                    break;
+                case 13:
+                    if (maxtri == null)
+                    {
+                        Console.WriteLine("Vui lòng tạo ma trận trước (Chọn 1)");
+                        break;
+                    }
+                    
+                    int colIndex, rowIndex;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập hàng (0 đến " + (n - 1) + "):");
+                        string rowInputType = Console.ReadLine();
+                        if(!int.TryParse(rowInputType, out rowIndex) || rowIndex < 0 || rowIndex >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập cột (0 đến " + (n - 1) + "):");
+                        string colInputType = Console.ReadLine();
+                        if (!int.TryParse(colInputType, out colIndex) || colIndex < 0 || colIndex >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
 
+                    int value = maxtri[rowIndex, colIndex];
+                    Console.WriteLine(value%2==0? " "+(value)+" là số chẵn": " "+(value)+" là số lẻ");
+                    break;
+                case 14:
+                    if (maxtri == null)
+                    {
+                        Console.WriteLine("Vui lòng tạo ma trận trước (Chọn 1)");
+                        break;
+                    }
 
+                    int colIndex2, rowIndex2;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập hàng (0 đến " + (n - 1) + "):");
+                        string rowInputType = Console.ReadLine();
+                        if (!int.TryParse(rowInputType, out rowIndex2) || rowIndex2 < 0 || rowIndex2 >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập cột (0 đến " + (n - 1) + "):");
+                        string colInputType = Console.ReadLine();
+                        if (!int.TryParse(colInputType, out colIndex2) || colIndex2 < 0 || colIndex2 >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    int value2 = maxtri[rowIndex2, colIndex2];
+                    Console.WriteLine("Ước của "+value2+" là: ");
+                    for (int i=1; i <= value2; i++)
+                    {
+                        if (value2 % i == 0)
+                        {
+                            Console.Write(i + "\t");
+                        }
+                    }
+                    Console.WriteLine();
+                    break;
+                case 15:
+                    if (maxtri == null)
+                    {
+                        Console.WriteLine("Vui lòng tạo ma trận trước (Chọn 1)");
+                        break;
+                    }
 
+                    int colIndex3, rowIndex3;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập hàng (0 đến " + (n - 1) + "):");
+                        string rowInputType = Console.ReadLine();
+                        if (!int.TryParse(rowInputType, out rowIndex3) || rowIndex3 < 0 || rowIndex3 >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập cột (0 đến " + (n - 1) + "):");
+                        string colInputType = Console.ReadLine();
+                        if (!int.TryParse(colInputType, out colIndex3) || colIndex3 < 0 || colIndex3 >= n)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    int values3 = maxtri[rowIndex3, colIndex3];
+                    int maxUCLN = 0;
+                    for(int i = 1; i <= values3; i++)
+                    {
+                        if (values3 % i == 0)
+                        {
+                            maxUCLN = Math.Max(maxUCLN, i);
+                            
+                        }
+                    }
+                    Console.WriteLine("Ước lớn nhất của " + values3 + " là: "+maxUCLN);
+                    break;
+                case 16:
+                    int a, b;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số a: ");
+                        string inputa = Console.ReadLine();
+                        if(!int.TryParse(inputa, out a) || a <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số b: ");
+                        string inputb = Console.ReadLine();
+                        if (!int.TryParse(inputb, out b) || b <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    Console.WriteLine("Bội chung của "+a+" và "+b+"(10 số đầu tiên) là: ");
+                    foreach (var item in MathDemo.ListCM(a,b,10))
+                    {
+                        Console.Write(item + "\t");
+                    }
+                    Console.WriteLine();
 
+                    break;
+                case 17:
+                    int a1, b1;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số a: ");
+                        string inputa = Console.ReadLine();
+                        if (!int.TryParse(inputa, out a1) || a1 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số b: ");
+                        string inputb = Console.ReadLine();
+                        if (!int.TryParse(inputb, out b1) || b1 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    Console.WriteLine("Ước chung của " + a1 + " và " + b1 + " là: ");
+                    foreach (var item in MathDemo.ListCD(a1, b1))
+                    {
+                        Console.Write(item + "\t");
+                    }
+                    Console.WriteLine();
+                    break;
+                case 18:
+                    int a2, b2;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số a: ");
+                        string inputa = Console.ReadLine();
+                        if (!int.TryParse(inputa, out a2) || a2 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số b: ");
+                        string inputb = Console.ReadLine();
+                        if (!int.TryParse(inputb, out b2) || b2 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    int ucln = MathDemo.GCD(a2, b2);
+                    Console.WriteLine("ƯCLN của " + a2 + " và " + b2 + " là: "+ucln+"");
 
+                    break;
+                case 19:
+                    int a3, b3;
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số a: ");
+                        string inputa = Console.ReadLine();
+                        if (!int.TryParse(inputa, out a3) || a3 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    while (true)
+                    {
+                        Console.WriteLine("Nhập số b: ");
+                        string inputb = Console.ReadLine();
+                        if (!int.TryParse(inputb, out b3) || b3 <= 0)
+                        {
+                            Console.WriteLine("Vui lòng nhập lại");
+                            continue;
+                        }
+                        break;
+                    }
+                    int bcnn = MathDemo.LCM(a3, b3);
+                    Console.WriteLine("BCNN của " + a3 + " và " + b3 + " là: " + bcnn + "");
+                    break;
 
                     default:
                     Console.WriteLine("❌ Vui lòng nhập số hợp lệ!");
